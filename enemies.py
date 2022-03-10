@@ -11,7 +11,7 @@ class Enemy:
     def is_alive(self):
         return self.hp > 0
         
-        
+        # all of my enemies are weak for the sake of the demonstration. Watching me fight them with any strategy wouldn't be fun in text
 class boss (Enemy):
     def __init__(self):
         self.name = "King Slime"
