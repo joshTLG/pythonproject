@@ -35,7 +35,7 @@ class Player:
     def print_inventory(self):
         print("Inventory/Stats:")
         for item in self.inventory: 
-            print("*"+ str(item))
+            print(" "+ str(item))
         print(f"Gold: {self.gold}")
         print(f"Experience:{self.exp}")
         print(f"Hp:{self.hp}")

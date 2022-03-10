@@ -11,7 +11,7 @@ class NonPlayableCharacter():
 
 class Trader(NonPlayableCharacter):
     def __init__(self):
-        self.name = "Trader"
+        self.name = "Merchant"
         self.gold = 1000
         self.inventory = [items.SmallBandage(),
                       items.SmallBandage(),

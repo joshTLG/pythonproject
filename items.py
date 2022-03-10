@@ -3,7 +3,7 @@ class Weapon:
         raise NotImplementedError("Create subclass of Weapon")
         
     def __str__(self):
-        return "f{self.name}+{self.damage} Strength "
+        return self.name
       
 class Rock(Weapon):
     def __init__(self):
@@ -56,7 +56,7 @@ class Health:
         raise NotImplementedError ("Create subclass of Health")
     
     def __str__(self):
-        return f"{self.name}+{self.healing_value}HP"
+        return "{} (+{} HP)".format(self.name, self.healing_value)
         
 class RottenBread(Health):
     def __init__ (self):

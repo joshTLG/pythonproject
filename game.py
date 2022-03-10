@@ -102,7 +102,7 @@ def get_available_actions(room, player):
     if player.inventory:
         take_action(actions, 'i', player.print_inventory, "Inventory/Stats")
     if player.inventory:
-        take_action(actions, 'e', player.equip, "Equip Weapon")
+        take_action(actions, 'u', player.equip, "Equip Weapon")
     if isinstance(room, world.BossTile) and room.enemy.is_alive():
         take_action(actions, 'a', player.attack, "Attack")        
     if isinstance(room, world.TraderTile):

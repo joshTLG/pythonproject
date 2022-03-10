@@ -189,7 +189,7 @@ class TraderTile(MapTile):
 world_dsl = """
 |ET|ET|WT|ET|ET|
 |ET|GT|BT|  |ET|
-|ET|ET|ET|  |ET|
+|ET|GT|ET|  |ET|
 |TT|  |ST|GT|ET|
 |GT|  |ET|  |GT|
 """
