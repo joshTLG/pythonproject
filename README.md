@@ -10,8 +10,7 @@ Just run the project in the terminal
 
 ### Prerequisites
 
-What things are needed to install the software and how to install them. For now, maybe copy in
-"how to install python and python3 using apt."
+nothing new. Imports should just work
 
 ## Built With
 
