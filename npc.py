@@ -21,3 +21,5 @@ class Trader(NonPlayableCharacter):
                       items.Spear(),
                       items.Sword(),
                       items.DawnHammer()]
+
+# I can add villagers or other characters to the game here because the NPC is the parent and each additional class will be a child of that NPC class. 

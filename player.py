@@ -1,6 +1,6 @@
 import items
 import world 
-
+# this is the player and all of their starting attributes, items, and how they progress
 class Player:
     def __init__(self):
         self.inventory= [items.Rock(),
@@ -122,6 +122,7 @@ class Player:
             print (f"You gain {enemy.exp} experience! ")
             
             
+            # experience is tracked via amount of exp the player earns from defeating enemies
             
             
             if self.exp>50 and self.level_2:

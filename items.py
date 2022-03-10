@@ -1,3 +1,6 @@
+# Weapons and Health are Parents, I can make any kind of weapon you like and give it all kinds of cool powers. That's an iteration for a later version!
+# I can add armor too, but it's not something I needed for this demonstration
+
 class Weapon:  
     def __init__(self):
         raise NotImplementedError("Create subclass of Weapon")

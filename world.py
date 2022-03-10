@@ -4,6 +4,7 @@ import random
 import time
 
 
+# map tile is the parent class and just sets up the children's inheritance
 class MapTile:
     def __init__(self, x, y):
         self.x = x
@@ -16,13 +17,14 @@ class MapTile:
         pass
 
 
+# Where you're dropped into the map
 class StartTile(MapTile):
     def intro_text(self):
         return """
         It's dark in here. Try to get out of this place.
         """
 
-
+# randomly generated enemies on the map
 class EnemyTile(MapTile):
     def __init__(self, x, y):
         r = random.random()
@@ -79,6 +81,7 @@ class EnemyTile(MapTile):
             player.hp = player.hp - self.enemy.damage
             print(f"Enemy does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
 
+# Different from an enemy tile because it's the stage before the end (should be more difficult than a regular foe)
 class BossTile(MapTile):
     def __init__(self,x, y):
         self.enemy = enemies.boss()
@@ -102,7 +105,7 @@ class BossTile(MapTile):
             print(f"The King Slime does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
 
         
-
+# this is the endpoint of the game
 class WinTile(MapTile):
     def modify_player(self, player):
         player.win = True
@@ -112,7 +115,7 @@ class WinTile(MapTile):
         You made it to safety! Good work.
         """
 
-
+# A place that doesn't contain a monster. Just some money
 class GoldTile(MapTile):
     def __init__(self, x, y):
         self.gold = random.randint(1, 50)
@@ -136,6 +139,7 @@ class GoldTile(MapTile):
             """
 
 
+# Taking the NPC and putting his scenario in the Trader Tile. His child object of NPC is in the npc.py 
 class TraderTile(MapTile):
     def __init__(self, x, y):
         self.trader = npc.Trader()
@@ -157,6 +161,7 @@ class TraderTile(MapTile):
                 print("Invalid choice!")
 
     def trade(self, buyer, seller):
+        # enumerate makes it easy for me to keep track of the iterables (items)
         for i, item in enumerate(seller.inventory, 1):
             print(f"{i}. {item.name} - {item.value} Gold")
         while True:
@@ -185,15 +190,20 @@ class TraderTile(MapTile):
         return """
         Weird. Why is there another person here? And they want to trade? I guess capitalism exists in this place too.
         """
-
+# using Domain specific language here (dsl) to be flexible and allow me to make a world map
+# empty tiles are like walls - player cannot enter those areas
 world_dsl = """
-|ET|ET|WT|ET|ET|
-|ET|GT|BT|  |ET|
+|ET|  |WT|  |ET|
+|ET|GT|BT|TT|ET|
 |ET|GT|ET|  |ET|
 |TT|  |ST|GT|ET|
 |GT|  |ET|  |GT|
 """
 
+# This is checking 3 things 
+# 1: Is there one starting area?
+# 2: Is there one area where the player wins?
+# 3: Does each row contain the same number of cells?
 
 def is_dsl_valid(dsl):
     if dsl.count("|ST|") != 1:
@@ -209,6 +219,8 @@ def is_dsl_valid(dsl):
 
     return True
 
+
+# Dictionary dedicated to the areas the player will explore
 tile_type_dict = {"WT": WinTile,
                   "ET": EnemyTile,
                   "ST": StartTile,
@@ -223,6 +235,7 @@ world_map = []
 start_tile_location = None
 
 
+
 def parse_world_dsl():
     if not is_dsl_valid(world_dsl):
         raise SyntaxError("DSL is invalid!")
@@ -230,12 +243,20 @@ def parse_world_dsl():
     dsl_lines = world_dsl.splitlines()
     dsl_lines = [x for x in dsl_lines if x]
 
+    # iterate over each line in the DSL
+    # instead of i, I'm using y because we're working with an x,y grid
     for y, dsl_row in enumerate(dsl_lines):
+        # object to store the tiles
         row = []
+        # split method allows abbreviations 
         dsl_cells = dsl_row.split("|")
+        # split includes beginning and end of the line so to remove nonexistent cells
         dsl_cells = [c for c in dsl_cells if c]
+        # using x and iterating over the cells in DSL line
         for x, dsl_cell in enumerate(dsl_cells):
+            # look up abbreviation
             tile_type = tile_type_dict[dsl_cell]
+            # looks for the starting point and makes that the coordinates the player starts at
             if tile_type == StartTile:
                 global start_tile_location
                 start_tile_location = x, y
