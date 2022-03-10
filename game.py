@@ -4,7 +4,7 @@ import world
 import time 
 
 # play() is the main() function and the "executable"
-def play():
+def main():
     print(r""" 
 
 
@@ -137,4 +137,4 @@ def take_action(action_dict, hotkey, action, name):
 
     
 
-play()
+main()
