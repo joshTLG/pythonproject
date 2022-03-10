@@ -2,14 +2,11 @@
 Text Adventure for end of class
 # A Text Adventure (Placeholder name, needs a creative title)
 
-One Paragraph of your project description goes here. Describe what you're trying to do.
-What is the purpose of putting up this repo?
+This is a fun project where the goal is to leave an area. I've made several tiles to represent areas. You'll be able to move north, south, east, and west depending on where you're located. Each tile has either an enemy, gold, trader, or victory.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine
-for development and testing purposes. See deployment for notes on how to deploy the project
-on a live system.
+Just run the project in the terminal
 
 ### Prerequisites
 
