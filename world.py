@@ -1,7 +1,7 @@
 import enemies
 import npc
 import random
-import time
+
 
 
 # map tile is the parent class and just sets up the children's inheritance
@@ -79,7 +79,7 @@ class EnemyTile(MapTile):
     def modify_player(self, player):
         if self.enemy.is_alive():
             player.hp = player.hp - self.enemy.damage
-            print(f"Enemy does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
+            print(f"{self.enemy.name} does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
 
 # Different from an enemy tile because it's the stage before the end (should be more difficult than a regular foe)
 class BossTile(MapTile):
