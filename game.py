@@ -1,8 +1,9 @@
-from collections import OrderedDict
-from player import Player
+from collections import OrderedDict # this is a library that allows me to use the DSL
+from player import Player # player needs to be imported because it is the subject of the game and will be the controllable character
 import world
 import time 
 
+# play() is the main() function and the "executable"
 def play():
     print(r""" 
 
@@ -68,10 +69,11 @@ def play():
                        An Adventure by Josh Paige (2022)
                                                                                               """)     
 
-    time.sleep(2)
+    time.sleep(2) # dramatic pause built into the intro HA
     print("You wake up with no memory of how you got here")
     time.sleep(2)
-    print("                       ")                                 
+    print("                       ")
+    # Just makes sure the player is still breathing                                 
     world.parse_world_dsl()
     player=Player()  
     while player.is_alive()and not player.win:
@@ -126,6 +128,7 @@ def get_available_actions(room, player):
     return actions
 
 def take_action(action_dict, hotkey, action, name):
+    #makes it so user can use lower and upper case for their selection and it won't break the game
     action_dict[hotkey.lower()] = action
     action_dict[hotkey.upper()] = action
     print(f"{hotkey}: {name}")
