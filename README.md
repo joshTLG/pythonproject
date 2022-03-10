@@ -6,7 +6,7 @@ This is a fun project where the goal is to leave an area. I've made several tile
 
 ## Getting Started
 
-Just run the project in the terminal
+Just run the play.py in the terminal
 
 ### Prerequisites
 
