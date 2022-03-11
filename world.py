@@ -29,7 +29,7 @@ class EnemyTile(MapTile):
     def __init__(self, x, y):
         r = random.random()
         if r < 0.50:
-            
+            #TODO try to load an ascii image (just commented with """ ) when an enemy appears rather than when the world loads
             self.enemy = enemies.Slime()
             
 
@@ -79,7 +79,7 @@ class EnemyTile(MapTile):
     def modify_player(self, player):
         if self.enemy.is_alive():
             player.hp = player.hp - self.enemy.damage
-            print(f"{self.enemy.name} does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
+            print(f"A {self.enemy.name} does {self.enemy.damage} damage. You have {player.hp} HP remaining.")
 
 # Different from an enemy tile because it's the stage before the end (should be more difficult than a regular foe)
 class BossTile(MapTile):
