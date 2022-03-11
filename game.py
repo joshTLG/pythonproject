@@ -5,7 +5,7 @@ import time
 
 # play() is the main() function and the "executable"
 def main():
-    print(r""" 
+    print(""" 
 
 
 
