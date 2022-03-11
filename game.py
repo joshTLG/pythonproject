@@ -1,4 +1,4 @@
-from collections import OrderedDict # this is a library that allows me to use the DSL
+from collections import OrderedDict # this is a library that allows me to use the DSL and menu selections
 from player import Player # player needs to be imported because it is the subject of the game and will be the controllable character
 import world
 import time 

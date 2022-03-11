@@ -3,7 +3,7 @@ import random
 
 class Enemy:
     def __init__ (self):
-        raise NotImplementedError("Do not create raw Enemy objects")
+        raise NotImplementedError("Do not create raw Enemy classes")
     
     def __str__(self):
         return self.name

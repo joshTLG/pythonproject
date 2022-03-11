@@ -18,7 +18,8 @@ class Dagger(Weapon):
     def __init__(self):
         self.name="Dagger"
         self.description="A small, rusty knife."\
-                         "Easily concealable."
+                         "Easily concealable." # using the  \ allows me to make this part more readable within the codebase
+                                               # when running the program, it still exists as one sentence
         self.damage=10
         self.value= 20
 

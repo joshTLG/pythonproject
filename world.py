@@ -1,6 +1,8 @@
+#from playsound import playsound
 import enemies
 import npc
 import random
+
 
 
 
@@ -27,6 +29,7 @@ class StartTile(MapTile):
 # randomly generated enemies on the map
 class EnemyTile(MapTile):
     def __init__(self, x, y):
+        # playsound('battle.mp3')
         r = random.random()
         if r < 0.50:
             #TODO try to load an ascii image (just commented with """ ) when an enemy appears rather than when the world loads
@@ -239,7 +242,7 @@ start_tile_location = None
 def parse_world_dsl():
     if not is_dsl_valid(world_dsl):
         raise SyntaxError("DSL is invalid!")
-
+    #splitline lets me keep my string as a list so it doesn't break up the map
     dsl_lines = world_dsl.splitlines()
     dsl_lines = [x for x in dsl_lines if x]
 
